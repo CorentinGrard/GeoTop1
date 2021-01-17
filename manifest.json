@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "Geoguessr Extention",
+  "author": "Corentin Grard",
+  "version": "1.0",
+  "description": "Add stats about the BR game mode",
+
+  "applications": {
+    "gecko": {
+      "id": "corentin.grard@gmail.com",
+      "strict_min_version": "53.0"
+    }
+  },
+
+  "permissions": [
+    "*://*.geoguessr.com/*",
+    "storage",
+    "tabs",
+    "webRequest"
+  ],
+
+  "background": {
+    "scripts": [
+      "background-counter.js",
+      "background-cheat.js"
+    ]
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.geoguessr.com/battle-royale*"
+      ],
+      "js": [
+        "counter.js"
+      ]
+    }
+  ]
+}
