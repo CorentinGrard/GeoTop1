@@ -1,15 +1,18 @@
 browser.runtime.onMessage.addListener(updateCounter);
 
-function updateCounter({ win, loose }) {
+function updateCounter({ win, nbGames }) {
   const counter = document.getElementById('br_counter');
-  counter.innerHTML = "Win : " + win + " / Loose : " + loose
+  counter.textContent  = `Top 1 : ${win} / ${nbGames} Games played`
 }
 
 function initCounter() {
   const header = document.querySelector('.header__items');
   const counter = document.createElement('div')
   counter.id = "br_counter"
-  const counterText = document.createTextNode("Win : / Loose : ");
+  counter.classList.add("label-1");
+  counter.style["align-items"] = "center";
+  counter.style["color"] = "white";
+  const counterText = document.createTextNode("Top 1 : 0 / 0 Games played");
   counter.appendChild(counterText)
   counter.classList.add("header__item")
   header.prepend(counter)

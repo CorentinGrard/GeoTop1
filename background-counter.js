@@ -2,14 +2,13 @@ browser.runtime.onMessage.addListener(messageHandler)
 
 async function messageHandler(message) {
   let counter = await readCounter()
-  console.log(message)
-  console.log(counter)
   if (message.action === "getCounter") {
     // Do nothing
   } else if (message.action === "win") {
     counter.win++
+    counter.nbGames++
   } else if (message.action === "loose") {
-    counter.loose++
+    counter.nbGames++
   }
   await updateCounter(counter)
   let tabs = await browser.tabs.query({
@@ -24,18 +23,18 @@ async function messageHandler(message) {
 }
 
 async function readCounter() {
-  const results = await browser.storage.sync.get(["win", "loose"])
+  const results = await browser.storage.sync.get(["win", "nbGames"])
   return results
 }
 
-async function updateCounter({ win, loose }) {
-  const result = await browser.storage.sync.set({ win: win, loose: loose })
+async function updateCounter({ win, nbGames }) {
+  const result = await browser.storage.sync.set({ win: win, nbGames: nbGames })
 }
 
 async function initCounter() {
   const counter = await readCounter();
-  if (typeof counter.win === 'undefined' || typeof counter.loose === 'undefined' || counter.win === null || counter.loose === null) {
-    updateCounter({ win: 0, loose: 0 })
+  if (typeof counter.win === 'undefined' || typeof counter.nbGames === 'undefined' || counter.win === null || counter.nbGames === null) {
+    updateCounter({ win: 0, nbGames: 0 })
   }
 }
 

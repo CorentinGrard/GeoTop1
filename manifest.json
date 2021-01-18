@@ -1,14 +1,13 @@
 {
   "manifest_version": 2,
-  "name": "Geoguessr Extention",
+  "name": "GeoTop1",
   "author": "Corentin Grard",
   "version": "1.0",
   "description": "Add stats about the BR game mode",
 
   "applications": {
     "gecko": {
-      "id": "corentin.grard@gmail.com",
-      "strict_min_version": "53.0"
+      "id": "corentin.grard@gmail.com"
     }
   },
 
@@ -18,6 +17,12 @@
     "tabs",
     "webRequest"
   ],
+
+  "browser_action": {
+    "default_icon": "icons/geotop1-logo.png",
+    "default_title": "GeoTop1",
+    "default_popup": "popup/geotop1.html"
+  },
 
   "background": {
     "scripts": [
