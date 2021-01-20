@@ -2,8 +2,8 @@
   "manifest_version": 2,
   "name": "GeoTop1",
   "author": "Corentin Grard",
-  "version": "1.0",
-  "description": "Add stats about the BR game mode",
+  "version": "1.0.1",
+  "description": "Track your winrate in Geoguessr Battle Royale mode",
 
   "applications": {
     "gecko": {
