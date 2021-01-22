@@ -14,9 +14,7 @@
   "permissions": [
     "*://*.geoguessr.com/*",
     "storage",
-    "tabs",
-    "webRequest",
-    "webRequestBlocking"
+    "tabs"
   ],
 
   "browser_action": {
@@ -37,15 +35,8 @@
         "*://*.geoguessr.com/battle-royale*"
       ],
       "js": [
+        "js/counter.js",
         "js/ws-listener.js"
-      ]
-    },
-    {
-      "matches": [
-        "*://*.geoguessr.com*"
-      ],
-      "js": [
-        "js/counter.js"
       ]
     }
   ]
