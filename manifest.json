@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "GeoTop1",
   "author": "Corentin Grard",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Track your winrate in Geoguessr Battle Royale mode",
 
   "applications": {
