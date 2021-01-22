@@ -14,20 +14,18 @@
   "permissions": [
     "*://*.geoguessr.com/*",
     "storage",
-    "tabs",
-    "webRequest"
+    "tabs"
   ],
 
   "browser_action": {
-    "default_icon": "icons/geotop1-logo.png",
+    "default_icon": "icons/geotop1-logo-32.png",
     "default_title": "GeoTop1",
     "default_popup": "popup/geotop1.html"
   },
 
   "background": {
     "scripts": [
-      "background-counter.js",
-      "background-cheat.js"
+      "background/background-counter.js"
     ]
   },
 
@@ -37,7 +35,8 @@
         "*://*.geoguessr.com/battle-royale*"
       ],
       "js": [
-        "counter.js"
+        "js/counter.js",
+        "js/ws-listener.js"
       ]
     }
   ]
