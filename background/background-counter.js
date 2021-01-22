@@ -44,22 +44,12 @@ async function messageHandler(message) {
       break;
     case 'win':
       let counter = await readCounter()
-      counter.win++
-      await updateCounter(counter)
+      browser.storage.sync.set({ win: counter.win + 1 })
       break;
     case 'newGame':
       addNewGame(message.message)
       break;
   }
-  // let tabs = await browser.tabs.query({
-  //   currentWindow: true,
-  //   active: true
-  // })
-
-  // browser.tabs.sendMessage(
-  //   tabs[0].id,
-  //   counter
-  // )
 }
 
 async function addNewGame(currentGame) {

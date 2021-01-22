@@ -1,8 +1,8 @@
-let playerId = null;
+var playerId;
 
 document.body.addEventListener("ws_message", e => {
   const data = JSON.parse(e.detail.data)
-  if (data.code === "PlayerGuessed") { //GameFinished
+  if (data.code === "GameFinished") {
     let player = data.battleRoyaleGameState.players.find(player => player.playerId === playerId)
     if (player.playerState === "Qualified") {
       // Increment wins
@@ -38,11 +38,15 @@ var WebSocket = window.WebSocket = class extends WebSocket {
     this.addEventListener('message', event => {
       let ws_message = new CustomEvent("ws_message", {
         detail: {
-          data: event,
+          data: event.data,
           obj: this
         }
       });
       document.body.dispatchEvent(ws_message);
+    });
+
+    this.addEventListener('open', e => {
+      console.log("Websocket connected")
     });
   }
 
